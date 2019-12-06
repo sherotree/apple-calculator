@@ -1,43 +1,44 @@
-import React, { useState } from 'react'
-import './Calculator.css'
+import React, { useState } from "react";
+import "./Calculator.css";
 
 export function Calculator() {
   const element = [
-    { AC: function handleReset() {} },
+    { method: function handleReset() {}, label: "AC" },
     {
-      '%': function percent(number) {
-        return number / 100
+      method: function percent(number) {
+        return number / 100;
       },
+      label: "%"
     },
-    { '÷': '/' },
-    { 7: 7 },
-    { 8: 8 },
-    { 9: 9 },
-    { '×': '*' },
-    { 4: 4 },
-    { 5: 5 },
-    { 6: 6 },
-    { '-': '-' },
-    { 1: 1 },
-    { 2: 2 },
-    { 3: 3 },
-    { '+': '+' },
-    { 0: 0 },
-    { '.': '.' },
-    { '=': '=' },
-  ]
-  const [show, setShow] = useState(null)
+    { label: "/", value: "÷" },
+    { label: 7, value: 7 },
+    { label: 8, value: 8 },
+    { label: 9, value: 9 },
+    { label: "×", value: "*" },
+    { label: 4, value: 4 },
+    { label: 5, value: 5 },
+    { label: 6, value: 6 },
+    { label: "-", value: "-" },
+    { label: 7, value: 7 },
+    { label: 8, value: 8 },
+    { label: 9, value: 9 },
+    { label: "+", value: "+" },
+    { label: 0, value: 0 },
+    { label: ".", value: "." },
+    { label: "=", value: "=" }
+  ];
+  const [show, setShow] = useState(null);
 
   function handleReset() {
-    setShow([])
+    setShow([]);
   }
 
   return (
     <div>
       <p>{show}</p>
       {element.map((item, index) => {
-        return <div key={index}>{item}</div>
+        return <div key={index}>{item.label}</div>;
       })}
     </div>
-  )
+  );
 }
